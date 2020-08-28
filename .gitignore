@@ -1,14 +1,39 @@
-# Created by .ignore support plugin (hsz.mobi)
-/src/main/resources/application-dev.properties
-/src/main/resources/application-prod.properties
-.gitignore
-.idea/$PRODUCT_WORKSPACE_FILE$
-.idea/.gitignore
-.idea/compiler.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/uiDesigner.xml
-checkentering_socket.iml
-pom.xml
-src/
+HELP.md
 target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out
+gen
+*.log
+*.error
+*.mvn
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+src/main/resources/application-dev.properties
+src/main/resources/application-prod.properties
+/src/main/resources/application-dev.properties
