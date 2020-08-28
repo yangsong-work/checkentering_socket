@@ -1,1 +1,14 @@
 # Created by .ignore support plugin (hsz.mobi)
+!/src/main/resources/application-dev.properties
+!/src/main/resources/application-prod.properties
+.gitignore
+.idea/$PRODUCT_WORKSPACE_FILE$
+.idea/.gitignore
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/uiDesigner.xml
+checkentering_socket.iml
+pom.xml
+src/
+target/
