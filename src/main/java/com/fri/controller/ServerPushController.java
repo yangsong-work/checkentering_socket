@@ -49,7 +49,7 @@ public class ServerPushController {
         Map map = JSONObject.parseObject(data,Map.class);
         String padId = (String)map.get("padId");
         String json = (String)map.get("json");
-        boolean res = serverPushService.verifyOcr(padId, json);
+        boolean res = serverPushService.verifyIDCard(padId, json);
         if (res) {
             return ResponseUtil.ok();
         } else {
@@ -65,12 +65,12 @@ public class ServerPushController {
      * @return
      */
     @PostMapping("/face")
-    public String getFace(@RequestBody String data) {
+    public String verifyImage(@RequestBody String data) {
         log.info("接受数据时间：{}", new Date());
         Map map = JSONObject.parseObject(data,Map.class);
         String padId = (String)map.get("padId");
         String json = (String)map.get("json");
-        boolean res = serverPushService.verifyOcr(padId, json);
+        boolean res = serverPushService.verifyImage(padId, json);
         if (res) {
             return ResponseUtil.ok();
         } else {

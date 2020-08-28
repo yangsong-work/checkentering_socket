@@ -18,4 +18,8 @@ public class ServerPushServiceImpl implements ServerPushService {
     public boolean verifyIDCard(String padId, String json) {
         return socketUtil.sendMessage(padId, json);
     }
+    @Override
+    public boolean verifyImage(String padId, String json) {
+        return socketUtil.sendMessage(padId, json);
+    }
 }
