@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-!/src/main/resources/application-dev.properties
-!/src/main/resources/application-prod.properties
+/src/main/resources/application-dev.properties
+/src/main/resources/application-prod.properties
 .gitignore
 .idea/$PRODUCT_WORKSPACE_FILE$
 .idea/.gitignore
