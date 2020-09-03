@@ -108,11 +108,11 @@ public class MyHandler extends TextWebSocketHandler {
             log.info("此PadId无链接：{}", padId);
             return false;
         }
-            log.info("预推送信息：{}", padId);
+            log.info("预推送至pad：{}", padId);
         WebSocketSession session = users.get(padId);
-        // log.info("向APP推送数据:{}" , message);
         if (!session.isOpen()) return false;
         try {
+            System.out.println("向APP推送数据:"+message);
             session.sendMessage(message);
             log.info("消息推送成功至：{}{}", padId,new Date());
         } catch (IOException e) {

@@ -12,6 +12,7 @@ public class SocketUtil {
 
     //推送内容
     public boolean sendMessage(String padId, String message) {
+        System.out.println("准备推送数据："+ message);
         boolean hasSend = false;
         TextMessage textMessage = new TextMessage(message);
         hasSend = myHandler.sendMessageToUser(padId,textMessage);

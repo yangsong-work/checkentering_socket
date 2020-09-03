@@ -45,10 +45,10 @@ public class ServerPushController {
      */
     @PostMapping("/idcard")
     public String verifyIDCard(@RequestBody String data) {
-        log.info("接受数据时间：{}", new Date());
         Map map = JSONObject.parseObject(data,Map.class);
         String padId = (String)map.get("padId");
         String json = (String)map.get("json");
+        log.info("接受数据时间：{}", new Date());
         boolean res = serverPushService.verifyIDCard(padId, json);
         if (res) {
             return ResponseUtil.ok();
