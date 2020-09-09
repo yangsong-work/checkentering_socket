@@ -2,6 +2,7 @@ package com.fri.socket;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
+import com.fri.service.ServerPushService;
 import com.fri.utils.ResponseUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -33,6 +34,8 @@ public class MyHandler extends TextWebSocketHandler {
         users = new LinkedHashMap<String, WebSocketSession>();
 
     }
+    @Autowired
+    ServerPushService serverPushService;
 
     /**
      * 获取用户标识,获取websocekt对象的map集合
@@ -153,9 +156,11 @@ public class MyHandler extends TextWebSocketHandler {
      */
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
-        users.remove(getClientId(session));
+        String padId = getClientId(session);
+        users.remove(padId);
         log.info("连接已关闭：" + status); //当前的状态码，并删除存储在map中的websocket的链接对象
-        //TODO 是否通知核录桩？
+        //通知核录桩
+        serverPushService.logout(padId);
     }
 
     @Override
