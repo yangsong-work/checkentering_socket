@@ -4,7 +4,7 @@ com\fri\controller\ServerPushController.class
 com\fri\service\ServerPushService.class
 com\fri\socket\MyHandler.class
 com\fri\config\RestTemplateConfig.class
-com\fri\config\WebSocketConfig.class
 com\fri\socket\WebSocketInterceptor.class
+com\fri\config\WebSocketConfig.class
 com\fri\utils\ResponseUtil.class
 com\fri\CheckEnteringSocketApplication.class

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +76,13 @@ public class ServerPushServiceImpl implements ServerPushService {
         Map sendMap = new HashMap();
 
         Date date = new Date();
+
+        //TODO 针对二类区服务器时间不对
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(date);
+//        calendar.add(Calendar.DATE,-1);
+//        date = calendar.getTime();
+
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMddHHmmss");
 
@@ -100,8 +108,8 @@ public class ServerPushServiceImpl implements ServerPushService {
         sendMap.put("XXCZRY_XM", "白志斌");
         sendMap.put("XXCZRY_GMSFHM", "140603199011271011");
         sendMap.put("XXCZRY_GAJGJGDM", "110102900000");
-        sendMap.put("XXCZRY_BH", SERVICE_IP);
-        sendMap.put("XXCZRY_SJSJLX", "service_request");
+        sendMap.put("FWQQSB_BH", SERVICE_IP);
+        sendMap.put("FWQQ_SJSJLX", "service_request");
 
 
         Map returnMap = new HashMap<>();
@@ -118,12 +126,16 @@ public class ServerPushServiceImpl implements ServerPushService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        logger.info("三类区服务返回数据：{}", returnMap.toString());
-        Map subMap = (Map) returnMap.get("FWTG_NR");
-        if (subMap == null) {
-            return false;
-        } else {
-            return subMap.get("code").equals("0");
+        logger.info("三类区服务返回数据：{}", returnMap);
+        String str = (String) returnMap.get("FWTGZTDM");
+        if("200".equals(str)) {
+            Map subMap = (Map) returnMap.get("FWTG_NR");
+            if (subMap == null) {
+                return false;
+            } else {
+                return subMap.get("code").equals("0");
+            }
         }
+        return false;
     }
 }
